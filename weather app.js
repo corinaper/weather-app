@@ -3,7 +3,16 @@ const form = document.querySelector("form");
 const button = document.querySelector("button");
 const input = document.querySelector("input");
 
-weatherDisplay(geoplugin_city());
+const apiKeyIP = '5f06af52094146ca8f5aecbe1477466c';
+const urlIP = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKeyIP
+fetch(urlIP)
+.then(response => response.json())
+.then(data => {
+  const localCity = data.city;
+  weatherDisplay(localCity);
+});
+
+
 
 form.addEventListener("submit", e => {
     e.preventDefault();
