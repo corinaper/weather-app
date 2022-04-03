@@ -31,9 +31,10 @@ fetch(url)
   let mainWeather = weather[0]["main"]; 
   const localTime = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getHours();
   let localTimeMinutes = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getMinutes();
-  if (localTimeMinutes.length<2){localTimeMinutes="0"+new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getMinutes()};
+  if (localTimeMinutes<10){localTimeMinutes="0"+new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getMinutes()};
   const sunRise = new Date(new Date(sys.sunrise*1000).getTime()+ new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getHours();
   const sunSet = new Date(new Date(sys.sunset*1000).getTime()+ new Date().getTimezoneOffset() * 60000 + (timezone*1000)).getHours();
+  
   
 
 
